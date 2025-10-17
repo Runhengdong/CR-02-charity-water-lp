@@ -106,8 +106,8 @@ section {
 .hero {
   position: relative; /* Needed for overlay */
   /* Use the local image from the img folder as the background.
-     Add a subtle dark gradient on top so white text stays readable. */
-  background-image: linear-gradient(rgba(0,0,0,0.34), rgba(0,0,0,0.34)), url('img/_94831989_img_1088.jpg');
+     Removed the dark gradient so the image shows directly. */
+  background-image: url('img/_94831989_img_1088.jpg');
   background-size: cover;      /* Make the image cover the whole area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat;
