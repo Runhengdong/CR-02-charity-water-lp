@@ -23,13 +23,40 @@ Fonts:
   This CSS uses the provided color palette and beginner-friendly styles.
 */
 
-/* Set up the main font and background color for the whole page */
+/* Basic styles and simple layout using flexbox. Comments explain each part for beginners. */
+
+/* Reset some default spacing to make styling simpler */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page typography */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #222;
+    background-color: #f7f9fb;
+}
+
+/* Set Montserrat as the default body font (with fallbacks) */
 body {
   background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  font-family: 'Montserrat', 'Avenir', 'Proxima Nova', Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #222;
+}
+
+/* Use Lato for all headings so they look distinct */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', 'Proxima Nova', 'Avenir', Arial, sans-serif;
+}
+
+/* Ensure the "Our Story" heading follows the headings rule (Proxima Nova) */
+#story h2 {
+  font-family: 'Proxima Nova', 'Avenir', Arial, sans-serif;
 }
 
 /* Add a slight shadow and rounded corners to each section for depth */
@@ -41,11 +68,45 @@ section {
   padding: 24px 16px;
 }
 
+/* Header / Navigation */
+.site-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6eef6;
+}
+.nav {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px;
+    display: flex;               /* simple horizontal layout */
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    display: flex;               /* place logo image in the nav */
+    align-items: center;         /* vertical alignment */
+    gap: 8px;
+    font-weight: bold;
+    color: #2E9DF7;
+    font-size: 16px;
+    /* add a little left padding so the larger logo doesn't sit too close to the edge */
+    padding-left: 6px;
+}
+.nav-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.nav-link {
+    color: #2E9DF7;              /* main brand color (updated) */
+    text-decoration: none;
+    font-size: 14px;
+}
+
 /* Hero Section Styles */
 .hero {
   position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
+  /* Use the local image from the img folder as the background */
+  background-image: url('img/_94831989_img_1088.jpg');
   background-size: cover;      /* Make the image cover the whole area */
   background-position: center; /* Center the image */
   background-repeat: no-repeat;
@@ -54,8 +115,7 @@ section {
   padding: 60px 20px;          /* Add space above and below */
   border-radius: 0 0 16px 16px; /* Only round bottom corners */
 
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
+  /* Keep the blue overlay for readability */
   background-blend-mode: darken;
   background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
 }
@@ -78,7 +138,7 @@ section {
 
 /* Story Section Styles */
 .story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
+  background-color: #8DD1CB; /* secondary color (updated) */
   color: #222;
   text-align: center;
   padding: 30px 20px;
@@ -93,10 +153,31 @@ h2 {
 
 /* Call-to-Action Section Styles */
 .call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
+  background-color: #2E9DF7; /* main brand color for strong CTA (updated) */
+  color: #ffffff;           /* white text for good contrast */
   text-align: center;
   padding: 30px 20px;
+}
+
+/* Reusable donate button styles */
+.donate-button {
+    background-color: #FF902A;   /* updated: brand orange */
+    color: white;
+    padding: 8px 14px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    /* Use inline-flex so text centers horizontally and vertically */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 120px; /* keeps buttons a consistent, tappable size */
+    /* Ensure donate uses Avenir explicitly */
+    font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+}
+.donate-button:hover {
+    opacity: 0.95;
 }
 
 /* Style the impact story image */
@@ -108,27 +189,47 @@ h2 {
   box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
 }
 
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
+/* Simple content sections */
+.story, .impact-story, .call-to-action {
+    max-width: 900px;
+    margin: 28px auto;
+    padding: 0 16px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #edf5fb;
+    padding: 20px;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+/* Impact content: image + text side-by-side on larger screens */
+.impact-content {
+    display: flex;               /* side-by-side layout */
+    gap: 16px;
+    align-items: center;
+    margin-top: 12px;
+}
+.impact-image {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Call to action style variations */
+.call-to-action {
+    text-align: center;
+}
+.call-to-action .large {
+    padding: 12px 20px;
+    border-radius: 8px;
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    font-size: 13px;
+    color: #6b6f76;
+    padding: 18px 8px;
 }
 
 /* Add some spacing between sections */
@@ -177,6 +278,12 @@ section {
     width: 90%;    /* Make image take up most of the width */
     max-width: 220px;
   }
+
+  /* Mobile tweak: scale the logo down on small screens */
+  .logo-img {
+    height: 28px;        /* slightly smaller on phones */
+    max-width: 40vw;
+  }
 }
 
 /* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
@@ -196,3 +303,113 @@ section {
     width: 300px;
   }
 }
+
+/* Responsive rules: stack columns on small screens */
+@media (max-width: 640px) {
+    .nav {
+        padding: 12px;
+    }
+    .hero h1 {
+        font-size: 22px;
+    }
+    .impact-content {
+        flex-direction: column;   /* stack image and text vertically on small screens */
+        align-items: flex-start;
+    }
+    .impact-image {
+        width: 100%;
+        height: 180px;
+    }
+}
+
+/* Size for the logo image (keeps things simple for beginners) */
+.logo-img {
+  width: auto;
+  height: 36px;          /* larger height so the logo text inside the image matches heading size */
+  display: block;
+  object-fit: contain;
+  max-width: 24vw;       /* keep it responsive on very wide screens */
+}
+
+/* Responsive improvements (append to end of file) */
+
+/* Make images always scale down to their container */
+.impact-image,
+.logo-img,
+.hero img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Increase touch target on nav links and make them easier to tap */
+.nav-link,
+.nav-actions a {
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+/* Make donate buttons more prominent on small screens by filling the width */
+.donate-button {
+  min-width: 120px;
+}
+
+/* Breakpoints for different screen sizes */
+@media (max-width: 900px) {
+  /* Slightly reduce hero headline and lead so it fits better on tablets */
+  .hero h1 { font-size: 2rem; }
+  .hero p.lead { font-size: 1.05rem; max-width: 600px; margin-left:auto; margin-right:auto; }
+
+  /* Make impact text and image align vertically with comfortable spacing */
+  .impact-content { gap: 18px; padding: 8px; }
+  .impact-image { width: 240px; }
+}
+
+@media (max-width: 700px) {
+  /* Stack the nav items vertically for narrow screens */
+  .nav {
+    padding: 10px;
+  }
+  .nav-actions {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end; /* keeps donate button on the right side visually */
+  }
+
+  /* Make the donate button full width so it's easy to tap */
+  .donate-button,
+  .nav-actions .donate-button {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+  }
+
+  /* Reduce hero padding and font sizes for phones */
+  .hero {
+    padding: 28px 12px;
+  }
+  .hero h1 { font-size: 1.5rem; line-height: 1.15; }
+  .hero p.lead { font-size: 0.98rem; }
+
+  /* Ensure the logo is not too large on small screens */
+  .logo-img { height: 28px; max-width: 36vw; }
+
+  /* Stack impact content vertically and center it */
+  .impact-content {
+    display: block;
+    text-align: center;
+  }
+  .impact-image { width: 90%; max-width: 260px; margin-left:auto; margin-right:auto; }
+}
+
+/* Small devices: tighten spacing and increase legibility */
+@media (max-width: 420px) {
+  .nav-link { font-size: 14px; padding: 8px; }
+  .hero h1 { font-size: 1.25rem; }
+  .hero p.lead { font-size: 0.95rem; }
+  .call-to-action .large { padding: 12px; width: 100%; box-sizing: border-box; }
+}
+
+/* Helpful tips (not code):
+   - Use % and max-width instead of fixed pixel widths for containers.
+   - Test at different widths and tweak the breakpoints above to match your design.
+   - For more advanced behavior, consider a mobile-first approach: write base rules for small screens, then add min-width media queries for larger screens. */

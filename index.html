@@ -4,35 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charity Water Landing Page</title>
+    <meta name="description" content="Join us to bring clean water to communities in need. Simple projects, real impact.">
+    <!-- Load Lato (headings) and Montserrat (body) from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Simple top navigation -->
+    <header class="site-header">
+        <nav class="nav">
+            <div class="logo" aria-label="Charity Water">
+                <img src="img/cw_logo-2.png" alt="Charity Water logo" class="logo-img">
+            </div>
+            <div class="nav-actions">
+                <a href="#impact" class="nav-link">Impact</a>
+                <a href="#story" class="nav-link">Our Story</a>
+                <a href="#" class="donate-button">Donate</a>
+            </div>
+        </nav>
+    </header>
+
     <!-- Hero Section: This is the main banner at the top of the page -->
-    <section class="hero">
+    <section class="hero" aria-label="Main banner">
         <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
+        <h1>You want to change the world, start with water.</h1>
         <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
+        <p class="lead">Every drop fuels progress toward climate justice, gender equality, and a healthier planet. Let's make it happen together.</p>
+        <a href="#" class="donate-button hero-cta">Donate Now</a>
     </section>
 
     <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
+    <section id="story" class="story">
         <h2>Our Story</h2>
         <p>
-         
+            We partner with local communities to build small, sustainable water projects.
+            Every project focuses on simple engineering, hygiene education, and local ownership.
+            Your support helps a village gain reliable access to clean water — so children can go to school and families can stay healthy.
+        </p>
     </section>
 
     <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
+    <section id="impact" class="impact-story">
         <!-- Section headline -->
         <h2>Real Impact: Meet Amina</h2>
         <!-- Container for image and text -->
         <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
+            <!-- Impact image (local) -->
+            <img src="img/African-water-pump-e1339420050502.jpg" alt="Village water pump" class="impact-image">
             <!-- Impact story text -->
             <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
+                Amina used to walk miles every day to collect water for her family. Thanks to your support,
+                her village now has a clean water well. Amina can go to school and her family is healthier and happier.
             </p>
         </div>
     </section>
@@ -41,7 +63,12 @@
     <section class="call-to-action">
         <h2>Make a Difference</h2>
         <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+        <a href="#" class="donate-button large">Donate Now</a>
     </section>
+
+    <!-- Simple footer -->
+    <footer class="site-footer">
+        <p>© Charity Water — Small projects, big impact. | <a href="#">Privacy</a></p>
+    </footer>
 </body>
 </html>
